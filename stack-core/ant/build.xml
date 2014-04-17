@@ -1,0 +1,42 @@
+<project name="Stack" default="maven-clean-install" basedir="../">
+
+	<property file="my.profile.properties" />
+	
+	<target name="maven-clean-install">
+		<exec osfamily="winnt" executable="${mvn.loc}/bin/mvn.bat" failonerror="true">
+			<arg value="clean" />
+			<arg value="install" />
+		</exec>
+		<antcall target="mkdir"></antcall>
+	</target>
+	
+	<target name="mongo-load">
+		<exec osfamily="winnt" executable="${mongo.loc}/bin/mongorestore.exe" failonerror="true">
+			<arg value="-db" />
+			<arg value="stack" />
+			<arg value="--drop" />
+			<arg value="data-stack/stack" />
+		</exec>
+	</target>
+	
+	<target name="mongo-dump">
+		<exec osfamily="winnt" executable="${mongo.loc}/bin/mongodump.exe" failonerror="true">
+			<arg value="-d" />
+			<arg value="stack" />
+			<arg value="-o" />
+			<arg value="data-stack" />
+		</exec>
+	</target>
+	
+	<target name="mkdir">
+		<mkdir dir="target/m2e-wtp/web-resources" />
+	</target>
+
+	<target name="maven-eclipse-eclipse" description="d">
+		<exec osfamily="winnt" executable="${mvn.loc}/bin/mvn.bat" failonerror="true">
+			<arg value="eclipse:eclipse" />
+		</exec>
+	</target>
+	
+
+</project>

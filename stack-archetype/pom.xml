@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.rdfgroup</groupId>
+	<artifactId>stack.core-archetype</artifactId>
+	<version>1.0.1-SNAPSHOT</version>
+	<packaging>maven-archetype</packaging>
+
+	<name>stack.core-archetype</name>
+
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.archetype</groupId>
+				<artifactId>archetype-packaging</artifactId>
+				<version>2.2</version>
+			</extension>
+		</extensions>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-archetype-plugin</artifactId>
+					<version>2.2</version>
+				</plugin>
+				<plugin>
+					<!-- This plugin manages the build release process. For a release, it 
+						creates tags in GIT, upload artefacts to Archiva, and generates and uploads 
+						the project site. -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.4.2</version>
+					<configuration>
+						<!-- Goals to run when preparing the release. -->
+						<preparationGoals>clean install</preparationGoals>
+						<!-- Goals to run when performing the release. By default "deploy site-deploy", 
+							but as there is nowhere to deploy the site, just run "deploy". -->
+						<goals>deploy</goals>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<scm>
+		<connection>
+			scm:git:ssh://btn-svr-rhl-1/data/gitroot/rdf/Stack.git
+		</connection>
+		<developerConnection>
+			scm:git:ssh://btn-svr-rhl-1/data/gitroot/rdf/Stack.git
+		</developerConnection>
+		<tag>HEAD</tag>
+	</scm>		
+
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>http://nexus.rdfgroup.com/nexus/content/repositories/releases</url>
+		</repository>
+	</distributionManagement>	
+</project>

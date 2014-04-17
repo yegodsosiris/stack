@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.rdfgroup</groupId>
+	<artifactId>stack.core</artifactId>
+	<name>Stack</name>
+	<packaging>war</packaging>
+	<version>1.0.1-SNAPSHOT</version>
+	<properties>
+		<java-version>1.7</java-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<org.springframework-version>3.2.8.RELEASE</org.springframework-version>
+		<spring-security.version>3.2.3.RELEASE</spring-security.version>
+		<org.aspectj-version>1.7.4</org.aspectj-version>
+		<org.slf4j-version>1.7.3</org.slf4j-version>
+	</properties>
+	<dependencies>
+
+
+		<!-- SimpleDataSource class -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-core</artifactId>
+			<version>2.1.4.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-ldap</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>1.0.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jpa</artifactId>
+			<version>2.0.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.4.1.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>2.11.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+
+		<!-- To sanitize html markup coming in from BH -->
+		<dependency>
+			<groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
+			<artifactId>owasp-java-html-sanitizer</artifactId>
+			<version>r173</version>
+		</dependency>
+
+		<!-- Google Guava used for joining Strings -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>16.0.1</version>
+		</dependency>
+
+		<!-- MySQL database driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.30</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.12.1.GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.1</version>
+		</dependency>
+
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- @Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!--JSTL -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>20030211.134440</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>5.4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time-jsptags</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-bundle</artifactId>
+			<version>1.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-multipart</artifactId>
+			<version>1.9.1</version>
+		</dependency>
+
+	</dependencies>
+	<scm>
+		<connection>
+			scm:git:ssh://btn-svr-rhl-1/data/gitroot/rdf/Stack.git
+		</connection>
+		<developerConnection>
+			scm:git:ssh://btn-svr-rhl-1/data/gitroot/rdf/Stack.git
+		</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>rdfrepo</id>
+			<name>Corporate Repository</name>
+			<url>http://nexus.rdfgroup.com/nexus/content/repositories/releases</url>
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<finalName>${artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>check-dependencies</id>
+						<!-- bind to the deploy phase -->
+						<phase>install</phase>
+						<goals>
+							<goal>display-dependency-updates</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>check-plugins</id>
+						<!-- bind to the deploy phase -->
+						<phase>install</phase>
+						<goals>
+							<goal>display-plugin-updates</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.6.4.201312101107</version>
+				<configuration>
+					<excludes>
+						<!-- These are from the stack part of the app which is not covered 
+							as part of this apps test coverage -->
+						<exclude>**/JacksonHelper.*</exclude>
+						<exclude>**/ErrorData.*</exclude>
+						<exclude>**/Config.*</exclude>
+						<exclude>**/BaseMongoEntity.*</exclude>
+						<exclude>**/User.*</exclude>
+						<exclude>**/Role.*</exclude>
+						<exclude>**/BaseController.*</exclude>
+						<exclude>**/LoginController.*</exclude>
+						<exclude>**/UserServiceImpl.*</exclude>
+						<exclude>**/UserDetailsServiceImpl.*</exclude>
+						<exclude>**/UserRepositoryImpl.*</exclude>
+						<exclude>**/JSPControllerIntercepter.*</exclude>
+						<exclude>**/PasswordEncoder.*</exclude>
+						<exclude>**/JsonError.*</exclude>
+						<exclude>**/RdfLdapProvider.*</exclude>
+						<exclude>**/SecurityHelper.*</exclude>
+						<exclude>**/Setting.*</exclude>
+						<exclude>**/LogEntry.*</exclude>
+						<exclude>**/ConfigRepositoryImpl.*</exclude>
+						<exclude>**/AuditRepositoryImpl.*</exclude>
+						<exclude>**/BaseMongoRepositoryImpl.*</exclude>
+						<exclude>**/FinanceRepositoryImpl.*</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<!-- implmentation is needed only for Maven 2 -->
+								<rule implementation="org.jacoco.maven.RuleConfiguration">
+									<element>BUNDLE</element>
+									<limits>
+										<!-- implmentation is needed only for Maven 2 -->
+										<limit implementation="org.jacoco.report.check.Limit">
+											<counter>COMPLEXITY</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.01</minimum>
+										</limit>
+									</limits>
+								</rule>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Creates and configures an Eclipse project -->
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<additionalProjectnatures>
+						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+					</additionalProjectnatures>
+					<additionalBuildcommands>
+						<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+					</additionalBuildcommands>
+					<additionalConfig>
+						<file>
+							<name>.settings/org.eclipse.core.resources.prefs</name>
+							<content>                <![CDATA[eclipse.preferences.version=1${line.separator}encoding/<project>=${project.build.sourceEncoding}${line.separator}]]>
+							</content>
+						</file>
+					</additionalConfig>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+				</configuration>
+			</plugin>
+
+			<!-- Jetty Web Server -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<configuration>
+					<scanIntervalSeconds>5</scanIntervalSeconds>
+					<webApp>
+						<contextPath>/stack</contextPath>
+					</webApp>
+					<stopPort>9966</stopPort>
+					<stopKey>foo</stopKey>
+					<systemProperties>
+						<systemProperty>
+							<name>log4j.configurationFile</name>
+							<value>file:${project.basedir}/src/main/resources/log4j.properties</value>
+						</systemProperty>
+					</systemProperties>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+						<version>1.2.16</version>
+					</dependency>
+					<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-api</artifactId>
+						<version>${org.slf4j-version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-log4j12</artifactId>
+						<version>${org.slf4j-version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-archetype-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<packageName>com.rdfgroup</packageName>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!-- This plugin manages the build release process. For a release, it 
+					creates tags in SVN, upload artefacts to Archiva, and generates and uploads 
+					the project site. -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.4.2</version>
+				<configuration>
+					<!-- Goals to run when preparing the release. -->
+					<preparationGoals>clean install</preparationGoals>
+					<!-- Goals to run when performing the release. By default "deploy site-deploy", 
+						but as there is nowhere to deploy the site, just run "deploy". -->
+					<goals>deploy</goals>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

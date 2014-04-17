@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+<!-- Spring Security -->
+<!-- NB the order of the http elements is vital here as this is the order in which the URLs are matched against -->
+	<!-- No security for resources directory-->
+	<security:http pattern="/resources/**" security="none" auto-config='false'/>
+	
+	<!-- REST services are secured with Basic Auth -->
+    <security:http create-session="never" auto-config="false" realm="Restricted Service" pattern="/rest/**">
+        <security:http-basic />
+		<security:logout logout-url="/logout"/>
+    </security:http>
+    
+    <bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
+    
+	<security:http auto-config="true"  access-denied-page="/WEB-INF/views/access_denied_simple.jsp">
+		<security:intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		 
+		<security:intercept-url pattern="/admin/**" access="ROLE_Admin" />
+		<security:intercept-url pattern="/finance/**" access="ROLE_Finance" />
+		 
+		<security:intercept-url pattern="/**" access="ROLE_User" />
+		<security:form-login login-page='/login' default-target-url="/" />
+		<security:logout logout-url="/logout"/>
+	
+	</security:http>
+	
+<!-- =============================================================================================== -->
+<!-- ===== Authentication Manager either LDAP or Mongo. Switch one for the other here ============== -->
+<!-- =============================================================================================== -->
+<!-- 
+    <security:authentication-manager>
+         <security:authentication-provider ref="adAuthenticationProvider"></security:authentication-provider>
+    </security:authentication-manager>	 
+ -->    
+    
+   <security:authentication-manager>
+        <security:authentication-provider user-service-ref="userDetailsService">
+        	<security:password-encoder base64="false" hash="md5"/>
+        </security:authentication-provider>
+    </security:authentication-manager> 
+    
+<!-- =============================================================================================== -->
+<!-- ========================================= END ================================================= -->
+<!-- =============================================================================================== -->
+    
+    <context:component-scan base-package="com.rdfgroup,com.stack"/> 
+    
+    <bean id="ldapContextSource" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+        <constructor-arg value="ldap://ldap.rdfgroup.com/dc=com,dc=rdfgroup"/>
+        <property name="userDn" value="rdfgroup\bullhorn.ldap"/>
+        <property name="password" value="5453fkqD5412hrsH"/>
+    </bean> 	     
+            
+    <bean id="adAuthenticationProvider" class="org.springframework.security.ldap.authentication.ad.ActiveDirectoryLdapAuthenticationProvider">
+    	<constructor-arg value="rdfgroup.com"/>
+   		<constructor-arg value="ldap://ldap.rdfgroup.com/"/>
+   			<property name="useAuthenticationRequestCredentials" value="true" />
+    		<property name="userDetailsContextMapper" ref="bhUserDetailsContextMapper"/>
+   			<property name="convertSubErrorCodesToExceptions" value="true"/>
+    </bean>
+    
+    <bean id="bhUserDetailsContextMapper" class="com.stack.security.UserDetailsLDAPContextMapper"/>
+    
+    <bean id="ldapTemplate"
+		class="org.springframework.ldap.core.LdapTemplate">
+		<constructor-arg ref="ldapContextSource" />
+		<property name="ignorePartialResultException" value="true"></property>
+	</bean>
+
+</beans>

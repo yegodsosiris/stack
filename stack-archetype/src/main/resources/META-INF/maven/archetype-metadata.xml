@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="stack.core"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <fileSets>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+      <excludes>
+        <exclude>com/stack/controller/BaseMVCController.java</exclude>
+        <exclude>com/stack/controller/LoginController.java</exclude>
+        <exclude>com/stack/domain/BaseMongoEntity.java</exclude>
+        <exclude>com/stack/domain/Role.java</exclude>
+        <exclude>com/stack/domain/User.java</exclude>
+        <exclude>com/stack/intercepter/JSPControllerIntercepter.java</exclude>
+        <exclude>com/stack/repository/BaseMongoRepositoryImpl.java</exclude>
+        <exclude>com/stack/scheduled/SchedulerSample.java</exclude>
+        <exclude>com/stack/security/PasswordEncoder.java</exclude>
+        <exclude>com/stack/security/RdfLdapProvider.java</exclude>
+        <exclude>com/stack/security/UserDetailsLDAPContextMapper.java</exclude>
+        <exclude>com/stack/services/exception/JsonError.java</exclude>
+        <exclude>com/stack/services/repository/UserRepository.java</exclude>
+        <exclude>com/stack/services/repository/UserRepositoryImpl.java</exclude>
+        <exclude>com/stack/services/security/UserDetailsServiceImpl.java</exclude>
+        <exclude>com/stack/services/service/UserService.java</exclude>
+        <exclude>com/stack/services/service/UserServiceImpl.java</exclude>
+        <exclude>com/stack/util/ErrorData.java</exclude>
+        <exclude>com/stack/util/JacksonHelper.java</exclude>
+        <exclude>com/stack/util/LogExecTime.java</exclude>
+        <exclude>com/stack/util/SecurityHelper.java</exclude>
+        <exclude>com/stack/util/SessionHelper.java</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>com/stack/controller/BaseMVCController.java</include>
+        <include>com/stack/controller/LoginController.java</include>
+        <include>com/stack/domain/BaseMongoEntity.java</include>
+        <include>com/stack/domain/Role.java</include>
+        <include>com/stack/domain/User.java</include>
+        <include>com/stack/intercepter/JSPControllerIntercepter.java</include>
+        <include>com/stack/repository/BaseMongoRepositoryImpl.java</include>
+        <include>com/stack/scheduled/SchedulerSample.java</include>
+        <include>com/stack/security/PasswordEncoder.java</include>
+        <include>com/stack/security/RdfLdapProvider.java</include>
+        <include>com/stack/security/UserDetailsLDAPContextMapper.java</include>
+        <include>com/stack/services/exception/JsonError.java</include>
+        <include>com/stack/services/repository/UserRepository.java</include>
+        <include>com/stack/services/repository/UserRepositoryImpl.java</include>
+        <include>com/stack/services/security/UserDetailsServiceImpl.java</include>
+        <include>com/stack/services/service/UserService.java</include>
+        <include>com/stack/services/service/UserServiceImpl.java</include>
+        <include>com/stack/util/ErrorData.java</include>
+        <include>com/stack/util/JacksonHelper.java</include>
+        <include>com/stack/util/LogExecTime.java</include>
+        <include>com/stack/util/SecurityHelper.java</include>
+        <include>com/stack/util/SessionHelper.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/webapp</directory>
+      <includes>
+        <include>**/*.jsp</include>
+        <include>**/*.xml</include>
+        <include>**/*.txt</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*.xml</include>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>src/main/webapp</directory>
+      <includes>
+        <include>**/*.svg</include>
+        <include>**/*.woff</include>
+        <include>**/*.ttf</include>
+        <include>**/*.js</include>
+        <include>**/*.swf</include>
+        <include>**/*.jpg</include>
+        <include>**/*.eot</include>
+        <include>**/*.json</include>
+        <include>**/*.png</include>
+        <include>**/*.md</include>
+        <include>**/*.tld</include>
+        <include>**/*.css</include>
+        <include>**/*.gif</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/test/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/resources</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>ant</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>data-stack/stack</directory>
+      <includes>
+        <include>**/*.bson</include>
+        <include>**/*.json</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>my.profile.properties</include>
+        <include>sample.my.profile.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>.gitignore</include>
+        <include>.springBeans</include>
+        <include>Jetty Debug.launch</include>
+        <include>Jetty start.launch</include>
+        <include>Jetty stop.launch</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>
